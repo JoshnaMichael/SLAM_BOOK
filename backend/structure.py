@@ -12,7 +12,6 @@ class Entry(Base):
     call_me            = Column(String(100))
     first_impression   = Column(Text)
     current_impression = Column(Text)
-    roast              = Column(Text)
     memory             = Column(Text)
     unsaid             = Column(Text)
     thoughts           = Column(Text)

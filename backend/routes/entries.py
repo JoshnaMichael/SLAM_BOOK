@@ -9,9 +9,9 @@ router = APIRouter()
 
 class EntryIn(BaseModel):
     name:               str
+    call_me:            str
     first_impression:   str
     current_impression: str
-    roast:              str
     memory:             str
     unsaid:             str
     thoughts:           str
