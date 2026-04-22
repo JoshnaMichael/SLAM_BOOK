@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memories with your Josh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      :root {
+        --ink: #4b3f72;
+        --accent: #f7b8d6;
+        --accent-2: #b9a7f5;
+        --paper: #fffefb;
+      }
+      body {
+        background:
+          radial-gradient(circle at 10% 10%, rgba(247, 184, 214, 0.38), transparent 35%),
+          radial-gradient(circle at 90% 20%, rgba(185, 167, 245, 0.28), transparent 30%),
+          linear-gradient(145deg, #fff7fc 0%, #f6f1ff 52%, #fff8fd 100%);
+        min-height: 100vh;
+        color: var(--ink);
+        font-family: 'DM Sans', sans-serif;
+        cursor: none;
+      }
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      #cursor {
+        position: fixed;
+        pointer-events: none;
+        z-index: 9999;
+        font-size: 16px;
+        transform: translate(-50%, -50%);
+        transition: transform 0.1s ease;
+      }
+      #cursor.clicking {
+        transform: translate(-50%, -50%) scale(1.5);
+      }
+      .login-wrap {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1rem;
+        font-family: 'DM Sans', sans-serif;
+      }
+      .login-card {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        max-width: 420px;
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(123, 106, 167, 0.25);
+        border-radius: 26px;
+        padding: clamp(2rem, 5vw, 3rem);
+        box-shadow: 0 20px 44px rgba(99, 76, 146, 0.20);
+        text-align: center;
+        animation: fadeInUp 0.55s ease both;
+      }
+      .lock-icon {
+        font-size: 48px;
+        margin-bottom: 1.5rem;
+      }
+      .lock-icon::before {
+        content: "🔒";
+      }
+      .login-title {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        color: #4b3f72;
+        margin-bottom: 0.6rem;
+        line-height: 1.2;
+      }
+      .login-sub {
+        color: #7d6aa9;
+        font-size: 15px;
+        margin-bottom: 1.8rem;
+        line-height: 1.6;
+      }
+      .pw-input {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid rgba(247, 184, 214, 0.3);
+        background: rgba(247, 184, 214, 0.08);
+        color: #4b3f72;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 15px;
+        margin-bottom: 1.2rem;
+        outline: none;
+        transition: border-color 0.2s ease;
+      }
+      .pw-input:focus {
+        border-color: rgba(247, 184, 214, 0.5);
+      }
+      .pw-input::placeholder {
+        color: #9a8fbb;
+      }
+      .login-btn {
+        width: 100%;
+        padding: 14px 16px;
+        background: linear-gradient(90deg, #f7b8d6 0%, #e8b8fa 45%, #b9a7f5 100%);
+        color: #3f3165;
+        border: 1px solid rgba(123, 106, 167, 0.3);
+        border-radius: 14px;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        cursor: pointer;
+        box-shadow: 0 12px 24px rgba(98, 79, 146, 0.22);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      }
+      .login-btn:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 28px rgba(98, 79, 146, 0.28);
+      }
+      .login-btn:disabled {
+        opacity: 0.82;
+        cursor: default;
+      }
+      .pw-err {
+        color: #9a4b79;
+        font-size: 13px;
+        margin-top: 0.8rem;
+        text-align: center;
+        background: rgba(247, 184, 214, 0.16);
+        border: 1px solid rgba(247, 184, 214, 0.55);
+        border-radius: 10px;
+        padding: 0.6rem 0.8rem;
+        font-weight: 500;
+      }
+    </style>
+    <script type="module" crossorigin src="/SLAM_BOOK/assets/index-BWR4QQzA.js"></script>
+  </head>
+  <body>
+    <div id="cursor">🩷</div>
+    <div id="root"></div>
+    <script>
+      const cursor = document.getElementById('cursor');
+      document.addEventListener('mousemove', e => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      });
+      document.addEventListener('mousedown', () => cursor.classList.add('clicking'));
+      document.addEventListener('mouseup', () => cursor.classList.remove('clicking'));
+    </script>
+  </body>
+</html>
