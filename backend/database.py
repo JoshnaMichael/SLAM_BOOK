@@ -1,8 +1,9 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from structure import Base
+import os
 
-MYSQL_URL = "mysql+pymysql://root:RTEdEzgasJBbNmfniMRDHhpIrWZKWQSS@shinkansen.proxy.rlwy.net:54209/railway"
+MYSQL_URL = os.getenv("MYSQL_URL", "mysql+pymysql://root:RTEdEzgasJBbNmfniMRDHhpIrWZKWQSS@shinkansen.proxy.rlwy.net:54209/railway")
 
 engine = create_engine(MYSQL_URL)
 SessionLocal = sessionmaker(bind=engine)
