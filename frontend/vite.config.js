@@ -3,8 +3,6 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  root: ".",
-  build: {
-    outDir: "dist"
-  }
+  base: "/SLAM_BOOK/",
+  build: { outDir: "dist" }
 });
